@@ -36,7 +36,7 @@ class CreateFolder{
         osw.close()
         os.close()
         conn.connect()
-        println (conn.getResponseCode())
+        return conn.getResponseCode()
         
     }
 }

@@ -74,7 +74,11 @@ pipeline {
                 println CreateFolder.foor
                 script {
                     def folder = new CreateFolder()
-                    folder.folderCreate(env.url, env.folderName, env.userName, env.userToken)
+                    status = folder.folderCreate(env.url, env.folderName, env.userName, env.userToken)
+                    echo '##########################################'
+                    echo '' + status
+                    echo '##########################################'
+
                     def person = new SampleClass()
                     person.age = 21
                     person.increaseAge(10)
