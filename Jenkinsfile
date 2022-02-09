@@ -19,6 +19,7 @@ pipeline {
                                              name: 'Username')]
             }
             echo "Username: ${env.USERNAME}"
+            sayHello '${env.USERNAME}'
 
           }
         }
