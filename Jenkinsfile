@@ -13,9 +13,7 @@ pipeline {
             steps { 
                 script { 
                     echo 'set vars ..'
-                    env.userName = "seba"
-                    env.userToken = "119abd428b460a3b608ff38cef1e7633b3"
-                    env.folderName = 'prueba2'
+                    env.folderName = ''
                     env.server = 'http://localhost:8080/'
                     env.path = ''
                     env.url = server + path
