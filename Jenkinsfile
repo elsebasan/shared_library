@@ -73,6 +73,10 @@ pipeline {
                 script {
                     def folder = new CreateFolder()
                     folder.folderCreate(env.url, env.folderName, env.userName, env.userToken)
+                    def person = new SampleClass()
+                    person.age = 21
+                    person.increaseAge(10)
+                    echo 'Incremented age, is now : ' + person.age
                 }
                 
 
