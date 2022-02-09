@@ -1,6 +1,7 @@
 @Library('shared-library') _
 
 import com.cleverbuilder.CreateFolder
+import com.cleverbuilder.GlobalVars
 
 pipeline {
     agent any
@@ -61,13 +62,14 @@ pipeline {
             steps {
                 echo 'Hello world'
                 //call sayHello from pipeline-library-demo 
+                println GlobalVars.foo
 
                 sayHello 'seba'
                 sayHello "${env.folderName}"
                 sayHello "${env.userName}"
                 sayHello "${env.userToken}"
                 sayHello "${env.url}"
-                CreateFolder.folderCreate(env.url, env.folderName, env.userName, env.userToken)
+                //CreateFolder.folderCreate(env.url, env.folderName, env.userName, env.userToken)
                 
 
             }
