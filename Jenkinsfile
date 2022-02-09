@@ -44,15 +44,15 @@ pipeline {
 
         }
 
-/*        stage('SayHello') {
+        stage('SayHello') {
             steps {
                 echo 'Hello world'
                 //call sayHello from pipeline-library-demo 
                 sayHello 'seba'
-                sayHello '${env.USERNAME}'
+                sayHello "${input.Config}"
             }
         }
-        */
+        
 
     }
 }
