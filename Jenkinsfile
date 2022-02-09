@@ -69,7 +69,7 @@ pipeline {
                 sayHello "${env.userName}"
                 sayHello "${env.userToken}"
                 sayHello "${env.url}"
-                //CreateFolder.folderCreate(env.url, env.folderName, env.userName, env.userToken)
+                println CreateFolder.foor
                 
 
             }
