@@ -38,7 +38,7 @@ pipeline {
                     // Echo to console
                     echo("IQA Sheet Path: ${inputConfig}")
                     echo("Test Info file path: ${inputTest}")
-//            sayHello ${env.USERNAME}
+                    sayHello ${inputConfig}
                 }
             }
 
