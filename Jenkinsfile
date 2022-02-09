@@ -1,10 +1,21 @@
-@Library('pipeline-library-demo') _
+@Library('shared-library') _
 
 
 pipeline {
     agent any
 
     stages {
+        stage('set vars'){
+            steps{ 
+                echo 'set vars ..'
+                env.userName='';
+                env.userToken=''
+                env.folderName='prueba'
+                env.server='http://localhost:8080/'
+                env.path=''
+                env.url=server + path
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Building..'
@@ -52,7 +63,5 @@ pipeline {
 
             }
         }
-        
-
     }
 }
