@@ -6,14 +6,16 @@ pipeline {
 
     stages {
         stage('set vars'){
-            steps{ 
-                echo 'set vars ..'
-                env.userName=""
-                env.userToken=""
-                env.folderName='prueba'
-                env.server='http://localhost:8080/'
-                env.path=''
-                env.url=server + path
+            steps { 
+                script { 
+                    echo 'set vars ..'
+                    env.userName = ""
+                    env.userToken = ""
+                    env.folderName = 'prueba'
+                    env.server = 'http://localhost:8080/'
+                    env.path = ''
+                    env.url = server + path
+                }
             }
         }
         stage('Build') {
