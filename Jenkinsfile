@@ -1,4 +1,6 @@
-@Library('pipeline-library-demo')
+Libraries {
+    lib('pipeline-library-demo')
+}
 
 
 pipeline {
