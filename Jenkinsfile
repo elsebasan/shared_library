@@ -1,4 +1,4 @@
-//@Library('pipeline-library-demo')
+@Library('pipeline-library-demo')
 
 
 pipeline {
