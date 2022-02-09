@@ -1,5 +1,6 @@
 @Library('shared-library') _
 
+import com.cleverbuilder.CreateFolder
 
 pipeline {
     agent any
@@ -9,9 +10,9 @@ pipeline {
             steps { 
                 script { 
                     echo 'set vars ..'
-                    env.userName = ""
+                    env.userName = "seba"
                     env.userToken = ""
-                    env.folderName = 'prueba'
+                    env.folderName = 'prueba2'
                     env.server = 'http://localhost:8080/'
                     env.path = ''
                     env.url = server + path
@@ -23,6 +24,7 @@ pipeline {
                 echo 'Building..'
             }
         }
+        /*
         stage("Interactive_input") {
             steps {
                 script {
@@ -53,16 +55,19 @@ pipeline {
             }
 
         }
+        */
 
         stage('SayHello') {
             steps {
                 echo 'Hello world'
                 //call sayHello from pipeline-library-demo 
+
                 sayHello 'seba'
                 sayHello "${env.folderName}"
                 sayHello "${env.userName}"
                 sayHello "${env.userToken}"
-                sayHello "${env.server}"
+                sayHello "${env.url}"
+                CreateFolder.folderCreate(env.url, env.folderName, env.userName, env.userToken)
                 
 
             }
