@@ -26,11 +26,9 @@ pipeline {
                                     string(defaultValue: 'None',
                                             description: 'usuario',
                                             name: 'userName'),
-                                    string(defaultValue: 'None',
-                                            description: 'token',
-                                            name: 'userToken'),
-
-
+                                    password(defaultValue: 'value', 
+                                             description: '', 
+                                             name: 'userToken')
 
                             ])
 
