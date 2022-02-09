@@ -2,6 +2,7 @@
 
 import com.cleverbuilder.CreateFolder
 import com.cleverbuilder.GlobalVars
+import com.clecerbuilder.SampleClass
 
 pipeline {
     agent any
