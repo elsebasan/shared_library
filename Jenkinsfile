@@ -20,20 +20,13 @@ pipeline {
                 echo 'Deploying....'
             }
         }
-    }
-}
-
-/*
-pipeline {
-    agent any
-    stages {
-        stage('Demo') {
+        stage('SayHello') {
             steps {
                 echo 'Hello world'
                 //call sayHello from pipeline-library-demo 
                 sayHello 'seba'
             }
         }
+
     }
 }
-*/
