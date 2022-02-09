@@ -13,7 +13,7 @@ package com.cleverbuilder
 // ejemplo
 
 class CreateFolder{
-    static string foor = "barrr"
+    static String foor = "barrr"
 
     static folderCreate(String urlString, String folderName, String userString, String tokenString) {
         //armo la url a para hacer el post 
