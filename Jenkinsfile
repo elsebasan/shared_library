@@ -49,7 +49,7 @@ pipeline {
                 echo 'Hello world'
                 //call sayHello from pipeline-library-demo 
                 sayHello 'seba'
-                sayHello "${input.Config}"
+                sayHello "${inputConfig}"
             }
         }
         
