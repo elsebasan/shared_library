@@ -10,21 +10,24 @@ pipeline {
                 echo 'Building..'
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+        stage("Interactive_input") {
+          steps {
+            script {
+              env.USERNAME = input message: 'Please enter the username',
+                                parameters: [string(defaultValue: '',
+                                             description: '',
+                                             name: 'Username')]
             }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
+            echo "Username: ${env.USERNAME}"
+
+          }
         }
         stage('SayHello') {
             steps {
                 echo 'Hello world'
                 //call sayHello from pipeline-library-demo 
                 sayHello 'seba'
+                sayHello '${env.USERNAME}'
             }
         }
 
