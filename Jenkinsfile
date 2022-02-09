@@ -1,8 +1,7 @@
 @Library('shared-library') _
 
-import com.folder.CreateFolder
-import com.cleverbuilder.GlobalVars
-import com.cleverbuilder.SampleClass
+//import com.cleverbuilder.GlobalVars
+////import com.cleverbuilder.SampleClass
 
 
 pipeline {
@@ -63,12 +62,7 @@ pipeline {
                 sayHello "${env.userName}"
                 sayHello "${env.userToken}"
                 sayHello "${env.url}"
-                script {
-                    def folder = new CreateFolder()
-                    status = folder.folderCreate(env.url, env.folderName, env.userName, env.userToken)
-                }
-                
-
+                createFolder(env.url, env.folderName, env.userName, env.userToken)
             }
         }
     }
