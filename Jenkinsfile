@@ -8,7 +8,7 @@ pipeline {
         stage('set vars'){
             steps{ 
                 echo 'set vars ..'
-                env.userName='';
+                env.userName=''
                 env.userToken=''
                 env.folderName='prueba'
                 env.server='http://localhost:8080/'
