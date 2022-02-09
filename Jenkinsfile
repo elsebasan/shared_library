@@ -14,7 +14,7 @@ pipeline {
                 script { 
                     echo 'set vars ..'
                     env.userName = "seba"
-                    env.userToken = ""
+                    env.userToken = "119abd428b460a3b608ff38cef1e7633b3"
                     env.folderName = 'prueba2'
                     env.server = 'http://localhost:8080/'
                     env.path = ''
@@ -68,9 +68,9 @@ pipeline {
 
                 sayHello 'seba'
                 sayHello "${env.folderName}"
-                sayHello "${env.userName}"
-                sayHello "${env.userToken}"
-                sayHello "${env.url}"
+               // sayHello "${env.userName}"
+               // sayHello "${env.userToken}"
+               // sayHello "${env.url}"
                 println CreateFolder.foor
                 script {
                     def folder = new CreateFolder()
