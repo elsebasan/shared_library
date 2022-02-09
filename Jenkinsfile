@@ -27,7 +27,6 @@ pipeline {
                 echo 'Building..'
             }
         }
-        /*
         stage("Interactive_input") {
             steps {
                 script {
@@ -68,21 +67,13 @@ pipeline {
 
                 sayHello 'seba'
                 sayHello "${env.folderName}"
-               // sayHello "${env.userName}"
-               // sayHello "${env.userToken}"
-               // sayHello "${env.url}"
+                sayHello "${env.userName}"
+                sayHello "${env.userToken}"
+                sayHello "${env.url}"
                 println CreateFolder.foor
                 script {
                     def folder = new CreateFolder()
                     status = folder.folderCreate(env.url, env.folderName, env.userName, env.userToken)
-                    echo '##########################################'
-                    echo '' + status
-                    echo '##########################################'
-
-                    def person = new SampleClass()
-                    person.age = 21
-                    person.increaseAge(10)
-                    echo 'Incremented age, is now : ' + person.age
                 }
                 
 
