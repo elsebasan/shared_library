@@ -32,11 +32,11 @@ pipeline {
                             ])
 
                     // Save to variables. Default to empty string if not found.
-                    inputConfig = userInput.Config?:''
+                    env.inputConfig = userInput.Config?:''
                     inputTest = userInput.Test?:''
 
                     // Echo to console
-                    echo("IQA Sheet Path: ${inputConfig}")
+                    echo("IQA Sheet Path: ${env.inputConfig}")
                     echo("Test Info file path: ${inputTest}")
                     sayHello "${inputConfig}"
                 }
@@ -49,7 +49,7 @@ pipeline {
                 echo 'Hello world'
                 //call sayHello from pipeline-library-demo 
                 sayHello 'seba'
-                sayHello "${inputConfig}"
+                sayHello "${env.inputConfig}"
             }
         }
         
