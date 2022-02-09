@@ -62,6 +62,8 @@ pipeline {
                 sayHello "${env.folderName}"
                 sayHello "${env.userName}"
                 sayHello "${env.userToken}"
+                sayHello "${env.server}"
+                
 
             }
         }
