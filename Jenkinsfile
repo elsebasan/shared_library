@@ -1,6 +1,6 @@
 @Library('shared-library') _
 
-import com.cleverbuilder.CreateFolder
+import com.folder.CreateFolder
 import com.cleverbuilder.GlobalVars
 import com.cleverbuilder.SampleClass
 
@@ -56,18 +56,13 @@ pipeline {
 
         }
 
-        stage('SayHello') {
+        stage('CreateFolder') {
             steps {
-                echo 'Hello world'
-                //call sayHello from pipeline-library-demo 
-                println GlobalVars.foo
-
-                sayHello 'seba'
+                echo 'creat folder'
                 sayHello "${env.folderName}"
                 sayHello "${env.userName}"
                 sayHello "${env.userToken}"
                 sayHello "${env.url}"
-                println CreateFolder.foor
                 script {
                     def folder = new CreateFolder()
                     status = folder.folderCreate(env.url, env.folderName, env.userName, env.userToken)
