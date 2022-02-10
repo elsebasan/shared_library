@@ -17,7 +17,8 @@ pipeline {
         script {
           // OPTION 1: set variable by reading from file.
           // FYI, trim removes leading and trailing whitespace from the string
-          FOLDERNAME = readFile('myfile.txt').trim()
+          //FOLDERNAME = readFile('myfile.txt').trim()
+          FOLDERNAME = 'Prueba2'
         }
         echo "FOLDERNAME ${FOLDERNAME}" 
       }
