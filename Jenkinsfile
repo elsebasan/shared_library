@@ -49,6 +49,9 @@ pipeline {
                 sayHello ("prueba")
                 echo "FOO = ${env.SERVER}"
                 sh '''
+                   echo "Variable"
+                   echo "${env.SERVER}"
+                   echo "fin Variable"
                    curl  "${env.SERVER}"
                    '''
 
