@@ -32,5 +32,5 @@ def folderCreate(String urlString, String folderName, String userString, String 
     cmd
 
     statusCode = sh (returnStatus: true, script: "x${cmd.join(' ').trim()}")
-*/
 }
+*/
