@@ -14,6 +14,13 @@ pipeline {
    stages {
        stage('Stage1') {
            steps {
+               withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
+                   sh '''
+                     set +x \
+                     curl -u "$USERPASS" "http://localhost:8080" \
+                   '''
+
+                }
                 sh """
                     echo server=$SERVER
                     echo folder=$FOLDERNAME
