@@ -6,22 +6,20 @@
 pipeline {
     agent any
 
-   environment {
-     py2Ana="DEFAULT"
-     SERVER="http://localhost:8080"
-     FOLDERNAME="NombreFolder"
-   }
-   stages {
-       stage('Stage1') {
-           steps {
+    environment {
+        py2Ana="DEFAULT"
+        SERVER="http://localhost:8080"
+        FOLDERNAME="NombreFolder"
+    }
+    stages {
+        stage('Stage1') {
+            steps {
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
-                    sh '''
-                    set +x \
-                    echo server=$SERVER
-                    curl "$SERVER -u "$USERPASS"
+                   sh '''
+                      set +x
+                      curl "$SERVER -u "$USERPASS"
                     '''
                 }
-                
             }
         }
     }
