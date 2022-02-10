@@ -19,7 +19,7 @@ pipeline {
                      set +x \
                      echo server=$SERVER
                      echo folder=$FOLDERNAME
-                     curl -u "$USERPASS" "http://localhost:8080" \
+                     curl -u "$USERPASS" $SERVER \
                    '''
 
                 }
