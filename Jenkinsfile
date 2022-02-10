@@ -19,11 +19,11 @@ pipeline {
                     set +x \
                     echo server=$SERVER
                     echo folder=$FOLDERNAME
-                    URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
                     header=""
                     curl "$SERVER -u "$USERPASS"  
                     '''
                     sh '''
+                    echo $SERVER
                     URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
                     echo $URL 
                     '''
