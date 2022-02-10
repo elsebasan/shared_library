@@ -17,16 +17,11 @@ pipeline {
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
                       set +x
-                      curl "http://localhost:8080/" -u "$USERPASS"
+                      URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
+                      HEADER="-H 'Content-Type: application/json'"
+                      curl "${URL}" $HEADER -d '{}' --user "$USERPASS"
                     '''
                 }
-                sh '''
-                    URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
-                    HEADER="-H 'Content-Type: application/json'"
-                    curl "${URL}" $HEADER -d '{}' --user "seba:119abd428b460a3b608ff38cef1e7633b3"
-
-
-                '''
             }
         }
     }
