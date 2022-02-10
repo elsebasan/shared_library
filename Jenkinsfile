@@ -22,7 +22,11 @@ pipeline {
                 echo "${env.SERVER}"
             }
         }
-
+        stage('exec bash'){
+            sh '''
+                    foo='bar'
+               '''
+        }
     }
 }
 
