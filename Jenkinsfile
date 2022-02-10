@@ -23,9 +23,9 @@ pipeline {
                     curl "$SERVER -u "$USERPASS"  
                     '''
                     sh '''
-                    echo $SERVER
-                    URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
-                    echo $URL 
+                    VAR1="Hello, "
+                    VAR2="${VAR1}World"
+                    echo $VAR2 
                     '''
 
                 }
@@ -34,6 +34,7 @@ pipeline {
     }
 }
 
+                    //URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
 //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
 
 
