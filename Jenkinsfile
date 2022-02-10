@@ -21,7 +21,7 @@ pipeline {
                     '''
                 }
                 sh '''
-                    curl $SERVER
+                    echo "${SERVER}"
                     VAR1="Hello, "
                     VAR2="${VAR1}World"
                     echo "$VAR2"
