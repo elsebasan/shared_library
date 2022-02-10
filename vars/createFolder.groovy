@@ -20,8 +20,8 @@ def folderCreate(String urlString, String folderName, String userString, String 
     userToken = "--user " + userString + ":" + tokenString
     cmd << userToken
     println cmd.join(' ')
-    //statusCode = sh (returnStatus: true, script: "${cmd.join(' ')}")
-    //println statusCode
+    statusCode = sh (returnStatus: true, script: "${cmd.join(' ')}")
+    println statusCode
 
 }
 
