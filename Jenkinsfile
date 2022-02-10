@@ -12,8 +12,14 @@ pipeline {
             steps { 
                 script { 
                     env.FILENAME = 'output.txt'
+                    env.SERVER = 'http://localhost:8080/'
                 }
                 echo "${env.FILENAME}"
+            }
+        }
+        stage('print vars'){
+            steps{
+                echo "${env.SERVER}"
             }
         }
 
