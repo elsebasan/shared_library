@@ -28,19 +28,11 @@ pipeline {
                                     string(defaultValue: 'None',
                                             description: 'Nombre del folder a crear',
                                             name: 'folderName'),
-                                    string(defaultValue: 'None',
-                                            description: 'usuario',
-                                            name: 'userName'),
-                                    password(defaultValue: 'value', 
-                                             description: '', 
-                                             name: 'userToken')
 
                             ])
 
                     // Save to variables. Default to empty string if not found.
                     env.folderName = userInput.folderName?:''
-                    env.userName = userInput.userName?:''
-                    env.userToken = userInput.userToken?:''
                 }
             }
 
@@ -56,6 +48,10 @@ pipeline {
                // sayHello "${env.url}"
                 sayHello ("prueba")
                 echo "FOO = ${env.SERVER}"
+                sh '''
+                   curl -u ${env.SERVER}
+                   '''
+
                //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
 
 //                withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
