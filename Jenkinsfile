@@ -13,7 +13,7 @@ pipeline {
         stage('GetFolderName'){
             steps{
                 script {
-                    SERVER="http://localhost:8080"
+                    env.SERVER="http://localhost:8080"
                     FOLDERNAME="NombreFolder"
                     // Get the input
                    // def userInput = input(
