@@ -17,15 +17,12 @@ pipeline {
                withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
                      set +x \
+                     echo server=$SERVER
+                     echo folder=$FOLDERNAME
                      curl -u "$USERPASS" "http://localhost:8080" \
                    '''
 
                 }
-                sh """
-                    echo server=$SERVER
-                    echo folder=$FOLDERNAME
-                     curl "http://localhost:8080" \
-                """
             }
         }
     }
