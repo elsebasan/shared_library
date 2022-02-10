@@ -19,14 +19,13 @@ pipeline {
                     set +x \
                     echo server=$SERVER
                     echo folder=$FOLDERNAME
-                    header=""
                     curl "$SERVER -u "$USERPASS"  
                     '''
-                    sh '''
-                    VAR1="Hello, "
-                    VAR2="${VAR1}World"
-                    echo $VAR2 
-                    '''
+                    //sh '''
+                   // VAR1="Hello, "
+                   // VAR2="${VAR1}World"
+                   // echo $VAR2 
+                   // '''
 
                 }
             }
