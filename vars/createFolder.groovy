@@ -12,7 +12,7 @@ def call(String name = 'human') {
 def folderCreate(String urlString, String folderName, String userString, String tokenString) {
 //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
     List cmd = []
-    curlString = "curl -XPOST " + urlString + "/createItem?name=" + folderName + "&mode=com.cloudbees.hudson.plugins.folder.Folder"
+    curlString = 'curl -XPOST ' + '"' + urlString + '/createItem?name=' + folderName + '&mode=com.cloudbees.hudson.plugins.folder.Folder' + '"'
 
     cmd << curlString
     cmd << "-H 'Content-Type: application/json'"
