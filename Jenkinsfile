@@ -11,20 +11,17 @@ pipeline {
         stage('set vars'){
             steps { 
                 script { 
-                    echo 'set vars ..'
-                    env.folderName = 'NombreFolder'
-                    env.server = 'http://localhost:8080/'
-                    env.path = ''
-                    env.userName = 'seba'
-                    enb.userToken = 'token'
+                    env.FILENAME = readFile 'output.txt'
                 }
+                echo "${env.FILENAME}"
             }
         }
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
+
+    }
+}
+
+
+
         /*
         stage("Interactive_input") {
             steps {
@@ -56,7 +53,6 @@ pipeline {
             }
 
         }
-*/
         stage('CreateFolder') {
             steps {
                 echo 'creat folder'
@@ -70,3 +66,5 @@ pipeline {
         }
     }
 }
+
+*/
