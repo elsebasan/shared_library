@@ -12,14 +12,10 @@ pipeline {
     stage('READ VALUE') {
       steps {
         script {
-          // OPTION 1: set variable by reading from file.
-          // FYI, trim removes leading and trailing whitespace from the string
-          //FOLDERNAME = readFile('myfile.txt').trim()
           FOLDERNAME = 'Prueba2'
         }
       }
     }
-    // this stage is skipped due to the when expression, so nothing is printed
     stage('CreateFolder') {
         steps{
             echo "FOLDERNAME ${FOLDERNAME}" 
@@ -28,15 +24,12 @@ pipeline {
                 env.URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
 
             }
-            sh '''
-                curl -XPOST "${URL}"  -H 'Content-Type: application/json' -d '{}' --user "seba:11bc47bfe03fc7653f39fa3398f5140ad9"
-            '''
             
-           // withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
-            //    sh '''
-             //       curl "${URL}"  --user "$USERPASS"
-              //  '''
-            //}
+            withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
+                sh '''
+                      curl -XPOST "${URL}"  -H 'Content-Type: application/json' -d '{}' --user "seba:11bc47bfe03fc7653f39fa3398f5140ad9"
+                '''
+            }
  
         }
     }
