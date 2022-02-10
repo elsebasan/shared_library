@@ -29,7 +29,7 @@ pipeline {
 
             }
             sh '''
-                curl "${URL}"  --user "seba:11bc47bfe03fc7653f39fa3398f5140ad9"
+                curl -XPOST "${URL}"  --user "seba:11bc47bfe03fc7653f39fa3398f5140ad9"
             '''
             
            // withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
