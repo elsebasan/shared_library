@@ -1,6 +1,9 @@
 #!/usr/bin/env groovy
 
-def call(String urlString, String folderName, String userString, String tokenString) {
+def call(){
+        folderCreate("http://localhost:8080/","pruebaFolder","seba", "tokenprueba")
+}
+def folderCreate(String urlString, String folderName, String userString, String tokenString) {
 //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
     List cmd = []
     curlString = "curl -XPOST " + urlString + "/createItem?name=" + folderName + "&mode=com.cloudbees.hudson.plugins.folder.Folder"
