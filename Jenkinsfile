@@ -13,9 +13,7 @@ pipeline {
        stage('Stage1') {
            steps {
                 sh """
-                    echo py2Ana=$py2Ana
-                    py2Ana=Initialized
-                    echo py2Ana Initialized=$py2Ana
+                    echo $py2Ana
                 """
             }
         }
