@@ -21,7 +21,7 @@ pipeline {
                     '''
                 }
                 sh '''
-                    echo $SERVER
+                    curl $SERVER
                 '''
             }
         }
