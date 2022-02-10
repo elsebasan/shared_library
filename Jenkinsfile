@@ -66,7 +66,7 @@ pipeline {
                // sayHello "${env.userToken}"
                // sayHello "${env.url}"
                 sayHello ("prueba")
-                createFolder2("prueba")
+                createFolder2("prueba createFolder")
             }
         }
     }
