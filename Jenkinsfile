@@ -11,7 +11,6 @@ pipeline {
         SERVER = "http://localhost:8080"
         folderName = 'NombreFolder'
         path="/"
-        url = server + path
     }
 
     stages {
