@@ -11,6 +11,7 @@ pipeline {
         SERVER = "http://localhost:8080"
         folderName = 'NombreFolder'
         path="/"
+        FOO = "BAR"
     }
     stages {
         /*
@@ -47,9 +48,7 @@ pipeline {
                // sayHello "${env.url}"
               ////  sayHello ("prueba")
                 
-               SERVER = 'BAR'
-               echo "FOO = ${SERVER}"
-
+               echo "FOO = ${env.FOO}"
                //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
 
            //     withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
