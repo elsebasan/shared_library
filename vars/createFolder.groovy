@@ -15,8 +15,15 @@ def call(String urlString, String folderName, String userString, String tokenStr
     cmd << '-d "{}"'
     userToken = "--user " + userString + ":" + tokenString
     cmd << userToken
-    println cmd.join(' ')
-    statusCode = sh (returnStatus: true, script: "set +x ${cmd.join(' ')}")
+   // println cmd.join(' ')
+    command = cmd.join(' ') 
+    sh '''
+       set +x
+
+      curl -XPOST "http://localhost:8080/createItem?name=pruebaFolder&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "{}" --user seba:119efc00c3c621b333d1d1dac37ef22b01
+       set -x
+   // statusCode = sh (returnStatus: true, script: "set +x ${cmd.join(' ')}")
+
     println statusCode
 
 }
