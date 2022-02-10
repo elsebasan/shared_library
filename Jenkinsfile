@@ -10,9 +10,27 @@ pipeline {
             steps {
                 script {
                     FOLDERNAME = 'Prueba2'
+                }
             }
         }
-    }
+        stage("Interactive_input") {
+            steps {
+                script {
+                    // Get the input
+                    def userInput = input(
+                            id: 'userInput', message: 'Ingresar los valores solicitados:?',
+                            parameters: [
+                                    string(defaultValue: 'None',
+                                            description: 'Nombre del folder a crear',
+                                            name: 'folderName')
+                            ])
+
+                    // Save to variables. Default to empty string if not found.
+                    FOLDERNAME = userInput.folderName?:''
+                }
+            }
+
+        }
     //Creo una Folder con de la stage anterior
     stage('CreateFolder') {
         steps{
