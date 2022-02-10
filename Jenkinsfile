@@ -39,7 +39,17 @@ pipeline {
         }
 */
         stage('CreateFolder') {
+            sh '''
+               echo "Executing Tests"
+               URL=`curl -s "http://localhost:4040/api/tunnels/command_line" | jq -r '.public_url'`
+               echo $URL
+            '''
 
+        }
+    }
+}
+
+/*
             steps {
                 echo 'creat folder'
                 //sayHello "${env.folderName}"
@@ -54,18 +64,15 @@ pipeline {
                     foo='bar'
                     echo $foo
                '''
-/*
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
                      set +x \
                      curl -u "$USERPASS" "http://localhost:8080" \
                    '''
                 }
-                */
                     //curl -XPOST "${env.url}/createItem?name=${env.folderName}&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "{}" --user "$USERPASS"
               //  createFolder("http://localhost:8080","pruebaFolder","seba", "119efc00c3c621b333d1d1dac37ef22b01")
 
             }
-        }
-    }
-}
+
+*/
