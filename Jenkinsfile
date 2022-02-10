@@ -8,7 +8,7 @@ pipeline {
     stages{ 
         stage("make param global") {
             steps {
-                tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
+                tmp_param =  sh (script: 'ls', returnStdout: true).trim()
                 env.custom_var = tmp_param
             }
         }
