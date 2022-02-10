@@ -46,17 +46,19 @@ pipeline {
                // sayHello "${env.userToken}"
                // sayHello "${env.url}"
               ////  sayHello ("prueba")
-               echo "FOO = ${env.SERVER}"
+                
+               SERVER = 'BAR'
+               echo "FOO = ${SERVER}"
 
                //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
 
-                withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
-                   sh '''
-                   set +x
-                   curl -u "$USERPASS" "http://localhost:8080"
+           //     withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
+            ////       sh '''
+              ////     set +x
+                ////   curl -u "$USERPASS" "http://localhost:8080"
 
-                   '''
-                }
+////                   '''
+  ////              }
                     //curl -XPOST "${env.url}/createItem?name=${env.folderName}&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "{}" --user "$USERPASS"
               //  createFolder("http://localhost:8080","pruebaFolder","seba", "119efc00c3c621b333d1d1dac37ef22b01")
 
