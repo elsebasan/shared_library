@@ -31,11 +31,11 @@ pipeline {
         stage('CreateFolder') {
             steps {
                 echo "SERVER = ${env.SERVER}"
-               /* 
                 sh '''
                     echo "SERVER = ${env.SERVER}"
                 '''
 
+               /* 
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
                       set +x
