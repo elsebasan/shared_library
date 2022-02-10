@@ -53,8 +53,7 @@ pipeline {
 
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
-                   echo "FOO = ${env.SERVER}"
-                   curl -u ${env.url}
+                   curl -u "$USERPASS" "http://localhost:8080"
 
                    '''
                 }
