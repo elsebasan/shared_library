@@ -28,11 +28,13 @@ pipeline {
                 env.URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
 
             }
-            sh '''
-                echo ${FOLDERNAME}
-                echo $URL 
-                curl -XPOST "$URL" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
-            '''
+            withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
+                sh '''
+                    set +x
+                    curl -XPOST "${URL}" -d '{}' --user "$USERPASS"
+                '''
+            }
+ 
         }
     }
   }
