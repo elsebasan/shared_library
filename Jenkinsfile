@@ -3,15 +3,11 @@
 //import com.cleverbuilder.GlobalVars
 ////import com.cleverbuilder.SampleClass
 
-
 pipeline {
     agent any
 
-
    environment {
      py2Ana="DEFAULT"
-     env.SERVER = 'http://localhost:8080/'
-     env.FOLDERNAME='probandolocal'
    }
    stages {
        stage('Stage1') {
@@ -25,9 +21,6 @@ pipeline {
         }
     }
 }
-
-
-
 
 
         /*
