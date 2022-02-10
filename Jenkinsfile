@@ -5,6 +5,31 @@
 
 pipeline {
     agent any
+        parameters {
+            string(name: 'custom_var', defaultValue: '')
+        }
+
+        stage("make param global") {
+             steps {
+               tmp_param =  sh (script: 'most amazing shell command', returnStdout: true).trim()
+               env.custom_var = tmp_param
+              }
+        }
+        stage("test if param was saved") {
+            steps {
+              echo "${env.custom_var}"
+            }
+        }
+  }
+
+
+
+
+
+
+/* 
+pipeline {
+    agent any
 
     environment {
         py2Ana="DEFAULT"
@@ -35,7 +60,6 @@ pipeline {
 
                 '''
 
-               /* 
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
                       set +x
@@ -47,12 +71,12 @@ pipeline {
                     URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
                     echo $URL
                 '''
-                */
             }
         }
     }
 }
 
+*/
                     //URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
 //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
 
