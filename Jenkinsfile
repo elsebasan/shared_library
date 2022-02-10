@@ -50,10 +50,7 @@ pipeline {
                 echo "FOO = ${env.SERVER}"
                 sh '''
                    echo "Variable"
-                   echo "${env.SERVER}"
-                   echo "fin Variable"
-                   curl  "${env.SERVER}"
-                   '''
+                '''
 
                //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
 
