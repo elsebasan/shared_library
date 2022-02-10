@@ -62,7 +62,11 @@ pipeline {
                 sayHello "${env.userName}"
                 sayHello "${env.userToken}"
                 sayHello "${env.url}"
-                createFolder(env.url, env.folderName, env.userName, env.userToken)
+
+                sh '''#!/bin/bash
+                      echo "hello world" 
+                   '''
+                //createFolder(env.url, env.folderName, env.userName, env.userToken)
             }
         }
     }
