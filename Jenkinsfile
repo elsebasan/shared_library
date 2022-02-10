@@ -15,16 +15,24 @@ pipeline {
        stage('Stage1') {
            steps {
                 sh """
-                          
                     echo server=$SERVER
                     echo folder=$FOLDERNAME
-
+                     curl "http://localhost:8080" \
                 """
             }
         }
     }
 }
 
+/*
+                withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
+                   sh '''
+                     set +x \
+                     curl -u "$USERPASS" "http://localhost:8080" \
+                   '''
+
+                }
+*/
 
         /*
         stage("Interactive_input") {
@@ -70,5 +78,13 @@ pipeline {
         }
     }
 }
+
+
+                withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
+                   sh '''
+                     set +x \
+                     curl -u "$USERPASS" "http://localhost:8080" \
+                   '''
+                }
 
 */
