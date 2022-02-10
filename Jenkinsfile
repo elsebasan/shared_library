@@ -63,21 +63,7 @@ pipeline {
                 sayHello "${env.userToken}"
                 sayHello "${env.url}"
 
-
-                List cmd = []
-                curlString = "curl -XPOST " + urlString + "/createItem?name=" + folderName + "&mode=com.cloudbees.hudson.plugins.folder.Folder"
-
-                cmd << curlString
-                cmd << "-H 'Content-Type: application/json'"
-                cmd << '-d "{}"'
-                userToken = "--user " + userString + ":" + tokenString
-                cmd << userToken
-
-                statusCode = sh (returnStatus: true, script: "${cmd.join(' ').trim()}")
-
-                sayHello statusCode
-
-                //createFolder(env.url, env.folderName, env.userName, env.userToken)
+                createFolder(env.url, env.folderName, env.userName, env.userToken)
             }
         }
     }
