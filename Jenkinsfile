@@ -40,6 +40,7 @@ pipeline {
     }
     stage('four'){
         steps{
+            echo "FOLDERNAME ${FOLDERNAME}" 
             sh '''
                 echo caca
                 echo ${FOLDERNAME}
