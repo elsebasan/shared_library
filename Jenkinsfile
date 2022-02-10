@@ -9,13 +9,12 @@ pipeline {
     environment {
         py2Ana="DEFAULT"
         SERVER="http://localhost:8080"
-        FOLDERNAME="NombreFolder"
         FOO = "Bar"
     }
     stages {
         stage("Env Variables") {
             environment {
-                FOLDERNAME = "NOMBREfolder2" // overrides pipeline level FOLDERNAME env variable
+                FOLDERNAME="NombreFolder2222"
             }
 
             steps {
@@ -33,6 +32,7 @@ pipeline {
                 sh '''
                     echo py2Ana=$py2Ana
                     echo FOLDERNAME=$FOLDERNAME
+
                 '''
 
                /* 
