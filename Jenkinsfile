@@ -12,7 +12,7 @@ pipeline {
             steps { 
                 script { 
                     echo 'set vars ..'
-                    env.folderName = ''
+                    env.folderName = 'NombreFolder'
                     env.server = 'http://localhost:8080/'
                     env.path = ''
                     env.url = server + path
