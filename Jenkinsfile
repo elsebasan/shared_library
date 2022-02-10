@@ -28,7 +28,6 @@ pipeline {
         }
         stage('CreateFolder') {
             steps {
-               /* 
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
                       set +x
@@ -36,11 +35,12 @@ pipeline {
                       curl -XPOST "${URL}" -d '{}' --user "$USERPASS"
                     '''
                 }
-                */
+               /* 
                 sh '''
                     URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
                     echo $URL
                 '''
+                */
             }
         }
     }
