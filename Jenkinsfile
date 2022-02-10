@@ -8,11 +8,25 @@ pipeline {
 
     environment {
         py2Ana="DEFAULT"
-        SERVER="http://localhost:8080"
-        FOLDERNAME="NombreFolder"
     }
     stages {
-        stage('Stage1') {
+        stage('GetFolderName'){
+            steps{
+                script {
+                    SERVER="http://localhost:8080"
+                    FOLDERNAME="NombreFolder"
+                    // Get the input
+                   // def userInput = input(
+                    //        id: 'userInput', message: 'Ingresar los valores solicitados:?',
+                   //         parameters: [
+                    //                string(defaultValue: 'None',
+                     //                       description: 'Nombre del folder a crear',
+                      //                      name: 'folderName')
+                       //     ])
+                }
+            }
+        }
+        stage('CreateFolder') {
             steps {
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
