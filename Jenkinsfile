@@ -17,16 +17,11 @@ pipeline {
             steps {
                 script {
                     // Get the input
-                    def userInput = input(
-                        id: 'userInput', message: 'Enter path of test reports:?',
-                        parameters: [
-                                    string(defaultValue: 'None',
-                                            description: 'Path of config file',
-                                            name: 'folderName'),
-                            ])
+                    FOLDERNAME = input message: 'Ingresar el nombre del folder',
+                             parameters: [string(defaultValue: '',
+                                          description: '',
+                                          name: 'FolderName')]
 
-                    // Save to variables. Default to empty string if not found.
-                    FOLDERNAME = userInput.folderName?:'TAMAL'
                 }
             }
 
