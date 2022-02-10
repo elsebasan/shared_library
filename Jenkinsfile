@@ -9,7 +9,7 @@ pipeline {
    environment {
      py2Ana="DEFAULT"
      SERVER="http://localhost:8080"
-     folderName="NombreFolder"
+     FOLDERNAME="NombreFolder"
    }
    stages {
        stage('Stage1') {
@@ -17,7 +17,7 @@ pipeline {
                 sh """
                           
                     echo server=$SERVER
-                    echo "hola"
+                    echo folder=$FOLDERNAME
 
                 """
             }
