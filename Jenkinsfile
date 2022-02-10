@@ -41,6 +41,7 @@ pipeline {
     stage('four'){
         steps{
             echo "FOLDERNAME ${FOLDERNAME}" 
+            env.FOLDERNAME = FOLDERNAME
             sh '''
                 echo caca
                 echo ${FOLDERNAME}
