@@ -20,9 +20,12 @@ pipeline {
                     def userInput = input(
                             id: 'userInput', message: 'Ingresar los valores solicitados:?',
                             parameters: [
+
                                     string(defaultValue: 'None',
                                             description: 'Nombre del folder a crear',
-                                            name: 'folderName'),
+                                            name: 'folderName')
+                                  
+
                             ])
 
                     // Save to variables. Default to empty string if not found.
