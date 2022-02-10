@@ -13,10 +13,10 @@ pipeline {
         FOO = "Bar"
     }
     stages {
-//        stage('GetFolderName'){
- //           steps{
-  //              script {
-   //                 FOLDERNAME="NombreFolder"
+        stage('GetFolderName'){
+            steps{
+                script {
+                    env.FOLDERNAME="NombreFolder2"
                     // Get the input
                    // def userInput = input(
                     //        id: 'userInput', message: 'Ingresar los valores solicitados:?',
@@ -25,13 +25,15 @@ pipeline {
                      //                       description: 'Nombre del folder a crear',
                       //                      name: 'folderName')
                        //     ])
-    //            }
-     //       }
-      //  }
+                }
+            }
+        }
         stage('CreateFolder') {
             steps {
+                //accedo a la variable global con el nombre porque esta seteade en el env de bash
                 sh '''
                     echo py2Ana=$py2Ana
+                    echo FOLDERNAME=$FOLDERNAME
                 '''
 
                /* 
