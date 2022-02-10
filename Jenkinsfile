@@ -14,19 +14,29 @@ pipeline {
    stages {
        stage('Stage1') {
            steps {
-               withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
-                   sh '''
-                     set +x \
-                     echo server=$SERVER
-                     echo folder=$FOLDERNAME
-                     curl -u "$USERPASS" "$SERVER" 
-                   '''
+                withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
+                    sh '''
+                    set +x \
+                    echo server=$SERVER
+                    echo folder=$FOLDERNAME
+                    URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
+                    header=""
+                    curl "$SERVER -u "$USERPASS"  
+                    '''
+                    sh '''
+                    URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
+                    echo $URL 
+                    '''
 
                 }
             }
         }
     }
 }
+
+//curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
+
+
 
 /*
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
