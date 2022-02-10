@@ -14,6 +14,7 @@ pipeline {
            steps {
                 sh """
                     echo $py2Ana
+                    echo "hola"
                 """
             }
         }
