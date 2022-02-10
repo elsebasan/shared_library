@@ -5,49 +5,33 @@
 
 def myVar = 'initial_value'
 def SERVER = 'https://localhost:8080/'
-def FOLDERNAME = 'PRUEBA1'
 
 pipeline {
   agent any
   stages {
-    stage('one') {
+    stage('READ VALUE') {
       steps {
-        echo "FOLDERNAME ${FOLDERNAME}" //
-        sh 'echo prueba2 > myfile.txt'
         script {
           // OPTION 1: set variable by reading from file.
           // FYI, trim removes leading and trailing whitespace from the string
           //FOLDERNAME = readFile('myfile.txt').trim()
           FOLDERNAME = 'Prueba2'
         }
-        echo "FOLDERNAME ${FOLDERNAME}" 
-      }
-    }
-    stage('two') {
-      steps {
-        echo "FOLDERNAME ${FOLDERNAME}" 
-        sh "echo 2.2. sh ${FOLDERNAME}, Seba" // prints '2.2. sh , Sergio'
       }
     }
     // this stage is skipped due to the when expression, so nothing is printed
-    stage('three') {
-      when {
-        expression { FOLDERNAME != 'prueba2' }
-      }
-      steps {
-        echo "three: ${FOLDERNAME}"
-      }
-    }
-    stage('four'){
+    stage('CreateFolder') {
         steps{
             echo "FOLDERNAME ${FOLDERNAME}" 
             script {
                 env.FOLDERNAME = FOLDERNAME
+                env.URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
+
             }
             sh '''
                 echo caca
                 echo ${FOLDERNAME}
-                
+                echo $URL 
 
             '''
         }
