@@ -4,35 +4,37 @@
 ////import com.cleverbuilder.SampleClass
 
 def myVar = 'initial_value'
+def SERVER = 'https://localhost:8080/'
+def FOLDERNAME = 'PRUEBA1'
 
 pipeline {
   agent any
   stages {
     stage('one') {
       steps {
-        echo "1.1. ${myVar}" // prints '1.1. initial_value'
-        sh 'echo hotness > myfile.txt'
+        echo "FOLDERNAME ${FOLDERNAME}" //
+        sh 'echo prueba2 > myfile.txt'
         script {
           // OPTION 1: set variable by reading from file.
           // FYI, trim removes leading and trailing whitespace from the string
-          myVar = readFile('myfile.txt').trim()
+          FOLDERNAME = readFile('myfile.txt').trim()
         }
-        echo "1.2. ${myVar}" // prints '1.2. hotness'
+        echo "FOLDERNAME ${FOLDERNAME}" 
       }
     }
     stage('two') {
       steps {
-        echo "2.1 ${myVar}" // prints '2.1. hotness'
-        sh "echo 2.2. sh ${myVar}, Sergio" // prints '2.2. sh hotness, Sergio'
+        echo "FOLDERNAME ${FOLDERNAME}" 
+        sh "echo 2.2. sh ${FOLDERNAME}, Seba" // prints '2.2. sh , Sergio'
       }
     }
     // this stage is skipped due to the when expression, so nothing is printed
     stage('three') {
       when {
-        expression { myVar != 'hotness' }
+        expression { FOLDERNAME != 'prueba2' }
       }
       steps {
-        echo "three: ${myVar}"
+        echo "three: ${FOLDERNAME}"
       }
     }
   }
