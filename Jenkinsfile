@@ -68,7 +68,7 @@ pipeline {
                 sayHello ("prueba")
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                 sh '''
-                   curl -u "$USERPASS" http://localhost:8080/"
+                   curl -u "$USERPASS" "http://localhost:8080/"
                    '''
                 }
                // sh '''
