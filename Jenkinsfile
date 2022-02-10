@@ -65,7 +65,9 @@ pipeline {
                // sayHello "${env.userName}"
                // sayHello "${env.userToken}"
                // sayHello "${env.url}"
+               enviroment {
                 url = 'http://localhost:8080'
+               }
                 sayHello ("prueba")
                //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
 
