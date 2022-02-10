@@ -42,6 +42,7 @@ pipeline {
         steps{
             sh '''
                 echo caca
+                echo $FOLDERNAME
                 
 
             '''
