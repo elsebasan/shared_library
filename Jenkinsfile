@@ -61,12 +61,12 @@ pipeline {
         stage('CreateFolder') {
             steps {
                 echo 'creat folder'
-                sayHello "${env.folderName}"
-                sayHello "${env.userName}"
-                sayHello "${env.userToken}"
-                sayHello "${env.url}"
+                //sayHello "${env.folderName}"
+               // sayHello "${env.userName}"
+               // sayHello "${env.userToken}"
+               // sayHello "${env.url}"
                 sayHello ("prueba")
-                createFolder2("prueba")
+                //createFolder2("prueba")
             }
         }
     }
