@@ -7,6 +7,10 @@
 pipeline {
     agent any
 
+    environment {
+        FOO = "bar"
+    }
+
     stages {
         stage('set vars'){
             steps { 
@@ -59,9 +63,6 @@ pipeline {
         }
 */
         stage('CreateFolder') {
-            enviroment {
-                url = 'http://localhost:8080'
-            }
 
             steps {
                 echo 'creat folder'
@@ -70,6 +71,7 @@ pipeline {
                // sayHello "${env.userToken}"
                // sayHello "${env.url}"
                 sayHello ("prueba")
+                echo "FOO = ${env.FOO}"
                //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
 
 //                withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
