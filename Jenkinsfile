@@ -8,12 +8,12 @@ pipeline {
 
     environment {
         py2Ana="DEFAULT"
+        SERVER="http://localhost:8080"
     }
     stages {
         stage('GetFolderName'){
             steps{
                 script {
-                    env.SERVER="http://localhost:8080"
                     FOLDERNAME="NombreFolder"
                     // Get the input
                    // def userInput = input(
@@ -29,7 +29,7 @@ pipeline {
         stage('CreateFolder') {
             steps {
                 sh '''
-                    echo "${env.SERVER}"
+                    echo "SERVER = ${env.SERVER}"
                 '''
 
                /* 
