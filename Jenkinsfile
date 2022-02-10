@@ -20,6 +20,9 @@ pipeline {
                       curl "http://localhost:8080/" -u "$USERPASS"
                     '''
                 }
+                sh '''
+                    echo $SERVER
+                '''
             }
         }
     }
