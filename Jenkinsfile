@@ -62,7 +62,7 @@ pipeline {
                 sayHello "${env.userName}"
                 sayHello "${env.userToken}"
                 sayHello "${env.url}"
-
+                sayHello ("prueba")
                 createFolder(env.url, env.folderName, env.userName, env.userToken)
             }
         }
