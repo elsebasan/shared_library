@@ -22,7 +22,7 @@ pipeline {
                 }
                 sh '''
                     URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
-                    curl "${URL}
+                    curl "${URL}"
 
 
                 '''
