@@ -29,7 +29,7 @@ pipeline {
         stage('CreateFolder') {
             steps {
                 sh '''
-                    echo ${env.server}
+                    echo ${env.SERVER}
                     URL="${env.SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
                     echo $URL
                 '''
