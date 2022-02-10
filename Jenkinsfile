@@ -22,7 +22,7 @@ pipeline {
                 }
                 sh '''
                     URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
-                    echo \"$URL\"
+                    echo '"$URL"'
                     VAR1="Hello, "
                     VAR2="${VAR1}World"
                     echo "$VAR2"
