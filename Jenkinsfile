@@ -11,7 +11,7 @@ pipeline {
         stage('set vars'){
             steps { 
                 script { 
-                    env.FILENAME = readFile 'output.txt'
+                    env.FILENAME = 'output.txt'
                 }
                 echo "${env.FILENAME}"
             }
