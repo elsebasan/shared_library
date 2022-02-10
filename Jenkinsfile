@@ -29,10 +29,9 @@ pipeline {
 
             }
             sh '''
-                echo caca
                 echo ${FOLDERNAME}
                 echo $URL 
-
+                curl -XPOST "$URL" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
             '''
         }
     }
