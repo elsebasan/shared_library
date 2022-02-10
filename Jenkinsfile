@@ -69,9 +69,9 @@ pipeline {
                 sh '''
                    set +x
                    curl -XPOST "http://localhost:8080/createItem?name=pruebaFolder&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "{}" --user seba:119efc00c3c621b333d1d1dac37ef22b01
-                   set -x
+                  set -x
                 '''
-                //createFolder("http://localhost:8080","pruebaFolder","seba", "119efc00c3c621b333d1d1dac37ef22b01")
+              //  createFolder("http://localhost:8080","pruebaFolder","seba", "119efc00c3c621b333d1d1dac37ef22b01")
 
             }
         }
