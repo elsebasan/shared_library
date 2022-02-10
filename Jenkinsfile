@@ -15,8 +15,11 @@ pipeline {
     stages {
         stage('GetFolderName'){
             steps{
+                enviromen{
+                    FOLDERNAME = "NombreFolder2"
+                }
                 script {
-                    env.FOLDERNAME="NombreFolder2"
+                    //env.FOLDERNAME="NombreFolder2"
                     // Get the input
                    // def userInput = input(
                     //        id: 'userInput', message: 'Ingresar los valores solicitados:?',
