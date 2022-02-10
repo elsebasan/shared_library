@@ -5,9 +5,6 @@
 
 pipeline {
     agent any
-    parameters {
-        string(name: 'custom_var', defaultValue: '')
-    }
     stages{ 
         stage("make param global") {
             steps {
