@@ -7,32 +7,26 @@
 pipeline {
     agent any
 
-    stages {
-        stage('set vars'){
-            steps { 
-                script { 
-                    env.SERVER = 'http://localhost:8080/'
-                    env.FOLDERNAME='probandolocal'
-                }
-                echo "${env.FILENAME}"
-            }
-        }
-        stage('print vars'){
-            steps{
-                echo "${env.SERVER}"
-            }
-        }
-        stage('exec bash'){
-            steps{
-            sh '''
-                    foo='bar'
-                    echo "$foo"
-                    echo "${env.SERVER}"
-               '''
+
+   environment {
+     py2Ana="DEFAULT"
+     env.SERVER = 'http://localhost:8080/'
+     env.FOLDERNAME='probandolocal'
+   }
+   stages {
+       stage('Stage1') {
+           steps {
+                sh """
+                    echo py2Ana=$py2Ana
+                    py2Ana=Initialized
+                    echo py2Ana Initialized=$py2Ana
+                """
             }
         }
     }
 }
+
+
 
 
 
