@@ -4,7 +4,7 @@
 ////import com.cleverbuilder.SampleClass
 
 def myVar = 'initial_value'
-def SERVER = 'https://localhost:8080/'
+def SERVER = 'http://localhost:8080/'
 
 pipeline {
   agent any
