@@ -15,6 +15,8 @@ pipeline {
                     env.folderName = 'NombreFolder'
                     env.server = 'http://localhost:8080/'
                     env.path = ''
+                    env.userName = 'seba'
+                    enb.userToken = 'token'
                     env.url = server + path
                 }
             }
@@ -24,6 +26,7 @@ pipeline {
                 echo 'Building..'
             }
         }
+        /*
         stage("Interactive_input") {
             steps {
                 script {
@@ -54,7 +57,7 @@ pipeline {
             }
 
         }
-
+*/
         stage('CreateFolder') {
             steps {
                 echo 'creat folder'
