@@ -13,7 +13,7 @@ pipeline {
         stage('GetFolderName'){
             steps{
                 script {
-                    env.SERVER="http://localhost:8080"
+                    SERVER="http://localhost:8080"
                     FOLDERNAME="NombreFolder"
                     // Get the input
                    // def userInput = input(
@@ -29,8 +29,8 @@ pipeline {
         stage('CreateFolder') {
             steps {
                 sh '''
-                    echo ${env.SERVER}
-                    URL="${env.SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
+                    echo $SERVER
+                    URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
                     echo $URL
                 '''
 
