@@ -4,7 +4,7 @@
 
 def call(String name = 'human') {
   echo "Hello, ${name}."
-  this.folderCreate("http://localhost:8080/","pruebaFolder","seba", "119efc00c3c621b333d1d1dac37ef22b01")
+  this.folderCreate("http://localhost:8080","pruebaFolder","seba", "119efc00c3c621b333d1d1dac37ef22b01")
 }
 
 
