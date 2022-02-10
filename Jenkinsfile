@@ -13,22 +13,17 @@ pipeline {
         FOO = "Bar"
     }
     stages {
-        stage('GetFolderName'){
-            enviroment{
-                    FOLDERNAME = "NombreFolder2"
+        stage("Env Variables") {
+            environment {
+                FOLDERNAME = "NOMBREfolder2" // overrides pipeline level FOLDERNAME env variable
             }
-            steps{
+
+            steps {
+                echo "FOLDERNAME = ${env.FOLDERNAME}" // prints "FOLDERNAME = NOMBREfolder2"
+                echo "SERVER = ${env.SERVER}" // prints "SERVER = localhost"
+
                 script {
-                    echo $FOO
-                    //env.FOLDERNAME="NombreFolder2"
-                    // Get the input
-                   // def userInput = input(
-                    //        id: 'userInput', message: 'Ingresar los valores solicitados:?',
-                   //         parameters: [
-                    //                string(defaultValue: 'None',
-                     //                       description: 'Nombre del folder a crear',
-                      //                      name: 'folderName')
-                       //     ])
+                    env.SOMETHING = "1" // creates env.SOMETHING variable
                 }
             }
         }
