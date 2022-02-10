@@ -23,9 +23,11 @@ pipeline {
             }
         }
         stage('exec bash'){
+            steps{
             sh '''
                     foo='bar'
                '''
+            }
         }
     }
 }
