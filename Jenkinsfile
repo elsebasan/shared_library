@@ -30,9 +30,8 @@ pipeline {
       //  }
         stage('CreateFolder') {
             steps {
-                echo "SERVER = ${env.SERVER}"
                 sh '''
-                    echo "SERVER = ${env.SERVER}"
+                    echo py2Ana=$py2Ana
                 '''
 
                /* 
