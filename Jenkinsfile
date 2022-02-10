@@ -17,7 +17,7 @@ pipeline {
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
                       set +x
-                      curl "$SERVER -u "$USERPASS"
+                      curl "http://localhost:8080/" -u "$USERPASS"
                     '''
                 }
             }
