@@ -31,7 +31,7 @@ pipeline {
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
                       set +x
-                      URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
+                      URL="${env.SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
                       curl -XPOST "${URL}" -d '{}' --user "$USERPASS"
                     '''
                 }
