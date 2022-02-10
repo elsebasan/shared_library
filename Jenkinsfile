@@ -12,12 +12,12 @@ pipeline {
             steps { 
                 script { 
                     echo 'set vars ..'
-                    env.folderName = 'NombreFolder'
-                    env.server = 'http://localhost:8080/'
-                    env.path = ''
-                    env.userName = 'seba'
-                    enb.userToken = 'token'
-                    env.url = server + path
+                   // env.folderName = 'NombreFolder'
+                   // env.server = 'http://localhost:8080/'
+                  //  env.path = ''
+                   // env.userName = 'seba'
+                    //enb.userToken = 'token'
+                   // env.url = server + path
                 }
             }
         }
