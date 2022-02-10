@@ -14,10 +14,10 @@ pipeline {
     }
     stages {
         stage('GetFolderName'){
-            steps{
-                enviroment{
+            enviroment{
                     FOLDERNAME = "NombreFolder2"
                 }
+            steps{
                 script {
                     echo $FOO
                     //env.FOLDERNAME="NombreFolder2"
