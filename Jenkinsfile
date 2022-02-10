@@ -19,6 +19,7 @@ pipeline {
                     FOLDERNAME = "NombreFolder2"
                 }
                 script {
+                    echo $FOO
                     //env.FOLDERNAME="NombreFolder2"
                     // Get the input
                    // def userInput = input(
