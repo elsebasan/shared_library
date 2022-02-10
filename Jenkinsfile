@@ -9,12 +9,14 @@ pipeline {
     environment {
         py2Ana="DEFAULT"
         SERVER="http://localhost:8080"
+        FOLDERNAME="NombreFolder"
+        FOO = "Bar"
     }
     stages {
-        stage('GetFolderName'){
-            steps{
-                script {
-                    FOLDERNAME="NombreFolder"
+//        stage('GetFolderName'){
+ //           steps{
+  //              script {
+   //                 FOLDERNAME="NombreFolder"
                     // Get the input
                    // def userInput = input(
                     //        id: 'userInput', message: 'Ingresar los valores solicitados:?',
@@ -23,16 +25,17 @@ pipeline {
                      //                       description: 'Nombre del folder a crear',
                       //                      name: 'folderName')
                        //     ])
-                }
-            }
-        }
+    //            }
+     //       }
+      //  }
         stage('CreateFolder') {
             steps {
+                echo "SERVER = ${env.SERVER}"
+               /* 
                 sh '''
                     echo "SERVER = ${env.SERVER}"
                 '''
 
-               /* 
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
                       set +x
