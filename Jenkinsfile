@@ -16,7 +16,7 @@ pipeline {
         stage('GetFolderName'){
             enviroment{
                     FOLDERNAME = "NombreFolder2"
-                }
+            }
             steps{
                 script {
                     echo $FOO
