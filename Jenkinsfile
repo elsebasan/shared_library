@@ -7,13 +7,11 @@
 pipeline {
     agent any
 
-/*
     environment {
         SERVER = "http://localhost:8080"
         folderName = 'NombreFolder'
         path="/"
     }
-*/
     stages {
         /*
         stage("Interactive_input") {
@@ -48,7 +46,7 @@ pipeline {
                // sayHello "${env.userToken}"
                // sayHello "${env.url}"
               ////  sayHello ("prueba")
-             //   echo "FOO = ${env.SERVER}"
+               echo "FOO = ${env.SERVER}"
 
                //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
 
