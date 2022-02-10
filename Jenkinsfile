@@ -38,6 +38,15 @@ pipeline {
         echo "three: ${FOLDERNAME}"
       }
     }
+    stage('four'){
+        steps{
+            sh '''
+                echo caca
+                
+
+            '''
+        }
+    }
   }
 }
 
