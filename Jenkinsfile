@@ -50,13 +50,15 @@ pipeline {
                 
                echo "FOO = ${env.FOO}"
                //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
-               sh "echo \"from shell i=${env.FOO}\""
+               sh '''
+                    foo='bar'
+                    echo $foo
+               '''
 /*
                 withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                    sh '''
-                     set +x
-                     curl -u "$USERPASS" "http://localhost:8080"
-
+                     set +x \
+                     curl -u "$USERPASS" "http://localhost:8080" \
                    '''
                 }
                 */
