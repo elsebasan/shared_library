@@ -17,7 +17,6 @@ pipeline {
                     env.path = ''
                     env.userName = 'seba'
                     enb.userToken = 'token'
-                    env.url = server + path
                 }
             }
         }
