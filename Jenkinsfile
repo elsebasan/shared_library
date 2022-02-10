@@ -18,7 +18,6 @@ pipeline {
                     sh '''
                     set +x \
                     echo server=$SERVER
-                    echo folder=$FOLDERNAME
                     curl "$SERVER -u "$USERPASS"
                     '''
                 }
