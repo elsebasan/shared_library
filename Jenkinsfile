@@ -49,7 +49,7 @@ pipeline {
                 sayHello ("prueba")
                 echo "FOO = ${env.SERVER}"
                 sh '''
-                   curl -u ${env.SERVER}
+                   curl  ${env.SERVER}
                    '''
 
                //curl -XPOST "$SERVER/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder" -H 'Content-Type: application/json' -d "$JSON" --user "$USER:$TOKEN"
