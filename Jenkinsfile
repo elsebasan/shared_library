@@ -11,8 +11,8 @@ pipeline {
         stage('set vars'){
             steps { 
                 script { 
-                    env.FILENAME = 'output.txt'
                     env.SERVER = 'http://localhost:8080/'
+                    env.FOLDERNAME='probandolocal'
                 }
                 echo "${env.FILENAME}"
             }
@@ -27,6 +27,7 @@ pipeline {
             sh '''
                     foo='bar'
                     echo "$foo"
+                    echo "${env.SERVER}"
                '''
             }
         }
