@@ -25,13 +25,14 @@ pipeline {
             echo "FOLDERNAME ${FOLDERNAME}" 
             script {
                 env.FOLDERNAME = FOLDERNAME
-                env.URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
+              //  env.URL="${SERVER}/createItem?name=$FOLDERNAME&mode=com.cloudbees.hudson.plugins.folder.Folder"
+                env.URL = SERVER
 
             }
             withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')]) {
                 sh '''
                     set +x
-                    curl -XPOST "${URL}" -d '{}' --user "$USERPASS"
+                    curl "${URL}"  --user "$USERPASS"
                 '''
             }
  
